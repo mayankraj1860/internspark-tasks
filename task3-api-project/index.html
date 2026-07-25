@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>StreamFinder - Global Movies, Web Series & Standup Catalog</title>
+		<link rel="stylesheet" href="style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+	</head>
+	<body>
+		<div class="container">
+			<!-- Theme Toggle -->
+			<button id="themeToggle" class="theme-toggle" title="Toggle Theme">
+				<i class="fa-solid fa-moon" id="themeIcon"></i>
+			</button>
+
+			<header>
+				<h1><i class="fa-solid fa-film"></i> StreamFinder</h1>
+				<p>
+					Explore Top 20 Trending Movies, Web Series & Standup Specials
+					Worldwide!
+				</p>
+			</header>
+
+			<!-- Search Section -->
+			<div class="search-box">
+				<input
+					type="text"
+					id="searchInput"
+					placeholder="Search movies, web series, or standup specials (e.g. Panchayat, Zakir Khan, Inception)..."
+					spellcheck="false"
+				/>
+				<button id="searchBtn">
+					<i class="fa-solid fa-magnifying-glass"></i>
+					<span class="btn-text">Search</span>
+				</button>
+			</div>
+
+			<!-- Quick Tags -->
+			<div class="quick-tags">
+				<span>Popular Searches:</span>
+				<button class="tag-btn" onclick="quickSearch('Panchayat')">
+					Panchayat
+				</button>
+				<button class="tag-btn" onclick="quickSearch('Zakir Khan: Tathastu')">
+					Zakir Khan
+				</button>
+				<button class="tag-btn" onclick="quickSearch('Bo Burnham: Inside')">
+					Bo Burnham
+				</button>
+				<button class="tag-btn" onclick="quickSearch('Interstellar')">
+					Interstellar
+				</button>
+				<button class="tag-btn" onclick="quickSearch('Anubhav Singh Bassi')">
+					Bassi
+				</button>
+			</div>
+
+			<!-- Loading State -->
+			<div class="loading" id="loadingState">
+				<div class="spinner"></div>
+				<p>Fetching streaming availability...</p>
+			</div>
+
+			<!-- Error State -->
+			<div class="error" id="errorState">
+				<i class="fa-solid fa-circle-exclamation"></i>
+				<p id="errorMsg">No titles found. Please check spelling.</p>
+			</div>
+
+			<!-- Search Result Card (Hidden by default, shown when user searches) -->
+			<div class="result-card" id="resultState">
+				<div class="poster-box">
+					<img id="poster" src="" alt="Poster" />
+				</div>
+				<div class="details-box">
+					<h2 id="title">Show Title</h2>
+					<div class="meta-info">
+						<span id="year" class="badge">2024</span>
+						<span id="type" class="badge type-badge">Series</span>
+						<span id="rating" class="badge rating-badge"
+							><i class="fa-solid fa-star"></i> 8.9</span
+						>
+						<span class="badge quality-badge">1080p | 4K UHD</span>
+					</div>
+
+					<p class="plot" id="plot">Plot summary will appear here.</p>
+
+					<div class="ott-container">
+						<h3>
+							<i class="fa-solid fa-tv"></i> Available On Official Platforms:
+						</h3>
+						<div class="platforms-list" id="platformsList"></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Featured Top 20 Hero Carousel Section -->
+			<div class="carousel-section">
+				<div class="section-header">
+					<h3><i class="fa-solid fa-fire"></i> Top 20 Trending Worldwide</h3>
+					<div class="carousel-controls">
+						<button id="prevBtn" class="nav-arrow">
+							<i class="fa-solid fa-chevron-left"></i>
+						</button>
+						<button id="nextBtn" class="nav-arrow">
+							<i class="fa-solid fa-chevron-right"></i>
+						</button>
+					</div>
+				</div>
+
+				<div class="carousel-container" id="carouselContainer">
+					<div class="carousel-track" id="carouselTrack">
+						<!-- Dynamically populated 20 Trending Cards -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Category Filter Tabs -->
+			<div class="category-section">
+				<h3><i class="fa-solid fa-layer-group"></i> Browse Categories</h3>
+
+				<div class="category-tabs">
+					<button
+						class="cat-btn active"
+						onclick="filterCategory('Top 20 Worldwide')"
+					>
+						<i class="fa-solid fa-globe"></i> Top 20 Worldwide
+					</button>
+					<button class="cat-btn" onclick="filterCategory('Standup Comedy')">
+						<i class="fa-solid fa-microphone-lines"></i> Standup Specials
+					</button>
+					<button class="cat-btn" onclick="filterCategory('Web Series')">
+						<i class="fa-solid fa-tv"></i> Top Web Series
+					</button>
+					<button class="cat-btn" onclick="filterCategory('Hollywood')">
+						<i class="fa-solid fa-clapperboard"></i> Hollywood Movies
+					</button>
+					<button class="cat-btn" onclick="filterCategory('Bollywood')">
+						<i class="fa-solid fa-film"></i> Bollywood Movies
+					</button>
+
+					<!-- IMDb Genres Dropdown -->
+					<div class="dropdown">
+						<button class="cat-btn dropdown-btn">
+							<i class="fa-solid fa-masks-theater"></i> Genres
+							<i class="fa-solid fa-chevron-down"></i>
+						</button>
+						<div class="dropdown-content">
+							<a onclick="filterCategory('Action')">Action</a>
+							<a onclick="filterCategory('Comedy')">Comedy</a>
+							<a onclick="filterCategory('Crime')">Crime</a>
+							<a onclick="filterCategory('Drama')">Drama</a>
+							<a onclick="filterCategory('Sci-Fi')">Sci-Fi</a>
+							<a onclick="filterCategory('Thriller')">Thriller</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Category Catalog Grid -->
+			<div class="latest-section">
+				<h3 id="categoryTitle">
+					<i class="fa-solid fa-list-check"></i> Featured Catalog
+				</h3>
+				<div class="trending-grid" id="trendingGrid">
+					<!-- Dynamically populated Catalog Grid -->
+				</div>
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>
