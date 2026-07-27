@@ -2,7 +2,7 @@
 
 A modern, responsive personal portfolio web application built as part of the Frontend Development Internship at InternSpark.
 
-🌐 **Live Preview:** [https://mayankraj1860.github.io/task1-portfolio/](https://mayankraj1860.github.io/task1-portfolio/)
+🌐 Live Preview: https://mayankraj1860.github.io/internspark-tasks/task1-portfolio/
 
 ## 🚀 Features Implemented
 
