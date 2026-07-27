@@ -3,9 +3,6 @@
 A fully responsive **Netflix India Clone** frontend built using HTML5, CSS3, and Vanilla JavaScript as part of the Frontend Development Internship at **InternSpark**.
 
 🌐 **Live Demo:** [https://mayankraj1860.github.io/internspark-tasks/task4-ui-clone/](https://mayankraj1860.github.io/internspark-tasks/task4-ui-clone/)
-📁 **GitHub Repository:** [https://github.com/mayankraj1860/internspark-tasks/tree/main/task4-ui-clone](https://github.com/mayankraj1860/internspark-tasks/tree/main/task4-ui-clone)
-
----
 
 ## 🚀 Key Features
 
