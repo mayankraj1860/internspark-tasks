@@ -9,6 +9,18 @@ document.addEventListener("DOMContentLoaded", () => {
 	let currentInput = "";
 	let shouldResetDisplay = false;
 
+	// Safe arithmetic evaluation helper
+	function evaluateExpression(expr) {
+		try {
+			// Sanitize input to allow only numbers, operators, dots, and parentheses
+			const sanitized = expr.replace(/[^0-9+\-*/().]/g, "");
+			if (!sanitized) return NaN;
+			return Function(`'use strict'; return (${sanitized})`)();
+		} catch (e) {
+			return NaN;
+		}
+	}
+
 	function appendNumber(number) {
 		if (display.textContent === "0" || shouldResetDisplay) {
 			display.textContent = "";
@@ -45,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				preview.textContent = "";
 				return;
 			}
-			const result = eval(currentInput);
+			const result = evaluateExpression(currentInput);
 			if (result !== undefined && !isNaN(result) && isFinite(result)) {
 				preview.textContent = result;
 			}
@@ -57,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	function calculate() {
 		try {
 			if (currentInput.trim() === "") return;
-			const result = eval(currentInput);
+			const result = evaluateExpression(currentInput);
 
 			if (isNaN(result) || !isFinite(result)) {
 				display.textContent = "Error";
@@ -99,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			targetButton.classList.add("kbd-active");
 			setTimeout(() => {
 				targetButton.classList.remove("kbd-active");
-			}, 100); // Removes the active flash color after 100ms
+			}, 100);
 		}
 	}
 
