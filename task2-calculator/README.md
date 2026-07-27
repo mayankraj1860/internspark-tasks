@@ -2,7 +2,7 @@
 
 A modern, responsive calculator web application built as part of the Frontend Development Internship at InternSpark.
 
-🌐 **Live Preview:** [https://mayankraj1860.github.io/task2-calculator/](https://mayankraj1860.github.io/task2-calculator/)
+🌐 **Live Preview:** [https://mayankraj1860.github.io/internspark-tasks/task2-calculator/](https://mayankraj1860.github.io/internspark-tasks/task2-calculator/)
 
 ## 🚀 Features Implemented
 
