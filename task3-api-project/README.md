@@ -2,7 +2,7 @@
 
 **StreamFinder** is a feature-rich, fully responsive single-page web application designed to help users explore top-rated movies, web series, and stand-up comedy specials worldwide, along with their official streaming platform availability.
 
-🌐 **Live Demo:** [https://mayankraj1860.github.io/task3-api-project/](https://mayankraj1860.github.io/task3-api-project/)
+🌐 **Live Demo:** [https://mayankraj1860.github.io/internspark-tasks/task3-api-project/](https://mayankraj1860.github.io/internspark-tasks/task3-api-project/)
 
 ---
 
@@ -33,6 +33,6 @@
 task3-api-project/
 ├── index.html     # Application structure & HTML markup
 ├── style.css      # CSS variables, responsive grids, and carousel styling
-├── script.js     # API fetch requests, theme toggling, and carousel logic
+├── script.js      # API fetch requests, theme toggling, and carousel logic
 └── README.md      # Project documentation
 ```
